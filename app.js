@@ -13,9 +13,6 @@
 var timeDay = ['6am', '7am', '8am', '9am', '10am', '11 am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 var stores = ['1st and Pike', 'Seatac Airport', 'Seattle Center', 'Capitol Hill', 'Alki'];
 
-var eListStart = document.getElementById('cookie-list');
-var hOneStart = document.getElementById('body');
-
 // function hOneStart(){
 //   document.getElementsByClassName('locations');
 // }
@@ -129,20 +126,24 @@ var avgCookies = [onePike.avgHourly(), seaTac.avgHourly(), seaCenter.avgHourly()
 // };
 
 // function printEverything(){
+
+var eListStart = document.getElementById('cookie-list');
+var hOneStart = document.getElementById('body');
+
 for(var v = 0; v < stores.length; v++){
   var hOne = document.createElement('h1');
-  // hOne.setAttribute('class', 'locations');
+  // hOne.setAttribute('id', 'locations');
   console.log();
   hOne.textContent = stores[v];
   hOneStart.appendChild(hOne);
   for(var h = 0; h < timeDay.length; h++){
     var eListItem = document.createElement('li');
     console.log(aDay(onePike));
-    eListItem.textContent = timeDay[h] + ': ' + hOne.textContent;
+    eListItem.textContent = timeDay[h] + ': ' + aDay(onePike, seaTac, seaCenter, capHill, alki);
     eListStart.appendChild(eListItem);
   }
 }
-// }
+
 // storesList();
 // aDay(seaTac);
 // aDay(seaTac);
