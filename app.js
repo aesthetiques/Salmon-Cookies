@@ -1,37 +1,13 @@
 'use strict';
 
-// var sectionEl = document.getElementById('main-content');
-
-// var userElement = document.createElement('dt'); //step one: create html element node
-
-// userElement.setAttribute('id', 'made-an-element'); //step two: this is a method that changes an html element node
-//the first input here is the type of element that we're making, the next is the id
-//this would thus far do the following: <dt id="made-an-element"></dt>
-
-// sectionEl.appendChild(userElement);
-
 var timeDay = ['6am', '7am', '8am', '9am', '10am', '11 am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 var stores = ['1st and Pike', 'Seatac Airport', 'Seattle Center', 'Capitol Hill', 'Alki'];
 var storesHtml = ['one-pike', 'sea-tac', 'sea-center', 'cap-hill', 'alki'];
 
-// function hOneStart(){
-//   document.getElementsByClassName('locations');
-// }
-
-//Loop Store Titles to dt
-// function loopStore(){
-//   for(var t = 0; t < stores.length; t++){
-//     return stores[t];
-//   };
-// }
-
-//LOOP TIME OF DAY
-// function loopTime(){
-//   for(var i = 0; i < timeDay.length; i++){
-//     console.log(timeDay[i]);
-//     return timeDay[i];
-//   };
-// }
+var eListStart = document.getElementById('cookie-list');
+var hOneStart = document.getElementById('body');
+var defListItems = document.getElementsByTagName('dl');
+var mainGrid = document.getElementsByClassName('');
 
 //Loop stores
 function loopStores(){
@@ -40,24 +16,11 @@ function loopStores(){
   }
 }
 
-//LOOP AVG COOKIES PER HR
-function loopAvgCookies(){
-  for(var j = 0; j < avgCookies.length; j++){
-    console.log(avgCookies[j]);
-  }
-};
-
 //LOOP THE HOURS OF DAY * loopAvgCookies();
 function aDay(x){
   console.log(x.avgHourly());
   return x.avgHourly();
 };
-
-// function randomInt(min, max){
-//   min = Math.ciel(this.minCust);
-//   max = Math.floor(this.maxCust);
-//   return Math.floor(Math.random() * (max - min + 1 )) + this.minCust;
-// }
 
 //--STORE OBJECTS BELOW--
 
@@ -106,19 +69,12 @@ var alki = {
   }
 };
 
-var avgCookies = [onePike.avgHourly(), seaTac.avgHourly(), seaCenter.avgHourly(), capHill.avgHourly(), alki.avgHourly()];
-
-var eListStart = document.getElementById('cookie-list');
-var hOneStart = document.getElementById('body');
-var defListItems = document.getElementsByTagName('dl');
-
 for(var v = 0; v < stores.length; v++){
   var loopDl = document.createElement('dl');
   hOneStart.appendChild(loopDl);
   var loopedId = document.getElementById(stores[v]);
   var hOne = document.createElement('dt');
   hOne.setAttribute('id', storesHtml[v]);
-  console.log(hOne);
   hOne.textContent = stores[v];
   loopDl.appendChild(hOne);
   for(var h = 0; h < timeDay.length; h++){
@@ -127,8 +83,53 @@ for(var v = 0; v < stores.length; v++){
     eListItem.textContent = timeDay[h] + ': ' + aDay(onePike, seaTac, seaCenter, capHill, alki);
     loopDl.appendChild(eListItem);
   }
-  // break;
 }
+
+// break;
+// function randomInt(min, max){
+//   min = Math.ciel(this.minCust);
+//   max = Math.floor(this.maxCust);
+//   return Math.floor(Math.random() * (max - min + 1 )) + this.minCust;
+// }
+
+// //LOOP AVG COOKIES PER HR
+// function loopAvgCookies(){
+//   for(var j = 0; j < avgCookies.length; j++){
+//     console.log(avgCookies[j]);
+//   }
+// };
+
+// var avgCookies = [onePike.avgHourly(), seaTac.avgHourly(), seaCenter.avgHourly(), capHill.avgHourly(), alki.avgHourly()];
+
+// function hOneStart(){
+//   document.getElementsByClassName('locations');
+// }
+
+//Loop Store Titles to dt
+// function loopStore(){
+//   for(var t = 0; t < stores.length; t++){
+//     return stores[t];
+//   };
+// }
+
+//LOOP TIME OF DAY
+// function loopTime(){
+//   for(var i = 0; i < timeDay.length; i++){
+//     console.log(timeDay[i]);
+//     return timeDay[i];
+//   };
+// }
+
+// var sectionEl = document.getElementById('main-content');
+
+// var userElement = document.createElement('dt'); //step one: create html element node
+
+// userElement.setAttribute('id', 'made-an-element'); //step two: this is a method that changes an html element node
+//the first input here is the type of element that we're making, the next is the id
+//this would thus far do the following: <dt id="made-an-element"></dt>
+
+// sectionEl.appendChild(userElement);
+
 // loopAvgCookies();
 
 // for(var z = 0; 0 < stores.list; z++){
