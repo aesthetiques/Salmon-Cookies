@@ -20,6 +20,7 @@ dt {
 }
 
 nav a{
+  border-radius: 15px 0px;
   opacity: .85;
   /*background-color: #FAEBD7;*/
   text-decoration: none;

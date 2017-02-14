@@ -35,32 +35,33 @@ function aDay(x){
 function CookieStore(minCust, maxCust, avgSale) {
   this.minCust = minCust;
   this.maxCust = maxCust;
-  this.avgSale = maxSale;
+  this.avgSale = avgSale;
 }
+var onePike = new CookieStore(23, 65, 6.3);
+var seaTac = new CookieStore(3, 24, 1.2);
 
 CookieStore.prototype.avgHourly = function(){
   return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
 };
 
 //--STORE OBJECTS BELOW--
-// var onePike = new CookieStore(23, 65, 6.3,);
-var onePike = {
-  minCust: 23,
-  maxCust: 65,
-  avgSale: 6.3,
-  avgHourly: function(){
-    return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
-  },
-};
-
-var seaTac = {
-  minCust: 3,
-  maxCust: 24,
-  avgSale: 1.2,
-  avgHourly: function(){
-    return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
-  }
-};
+// var onePike = {
+//   minCust: 23,
+//   maxCust: 65,
+//   avgSale: 6.3,
+//   avgHourly: function(){
+//     return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
+//   },
+// };
+//
+// var seaTac = {
+//   minCust: 3,
+//   maxCust: 24,
+//   avgSale: 1.2,
+//   avgHourly: function(){
+//     return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
+//   }
+// };
 
 var seaCenter = {
   minCust: 11,
@@ -89,22 +90,54 @@ var alki = {
   }
 };
 
+// var mainDiv = document.createElement('div');
+// mainDiv.setAttribute('class', 'container_12');
+
 for(var v = 0; v < stores.length; v++){
+  // mainDiv.appendChild(loopDl);
   var loopDl = document.createElement('dl');
-  hOneStart.appendChild(loopDl);
   var loopedId = document.getElementById(stores[v]);
   var hOne = document.createElement('dt');
+
+  hOneStart.appendChild(loopDl);
   // hOne.setAttribute('class', 'slideOut');
   hOne.setAttribute('id', storesHtml[v]);
   hOne.textContent = stores[v];
   loopDl.appendChild(hOne);
+
   for(var h = 0; h < timeDay.length; h++){
     var eListItem = document.createElement('dd');
-    console.log(aDay(onePike));
     eListItem.textContent = timeDay[h] + ': ' + aDay(onePike, seaTac, seaCenter, capHill, alki);
     loopDl.appendChild(eListItem);
   }
 }
+// document. body.appendChild(mainDiv);
+
+var stores = [pikePlace, otherStore, anotherStore];
+
+var tableEl = document.createElement('table');
+for(b = 0; b < tableEl.length; b++){
+  var currentStore = stores[b];
+  var rowEl = document.createElement('tr');
+  var nameEl = document.createElement('th');
+  nameEl.textContent = currentStore.name;
+  rowEl.appendChild(nameEl);
+
+  var minCustEl = document.createElement('td');
+  minCustEl.textContent = currentStore.minCustomers;
+  rowEl.appendChild(minCustEl);
+
+  var maxCustEl = document.createElement('td');
+  maxCustEl.textContent = currentStore.maxCustomers;
+  rowEl.appendChild(maxCustEl);
+
+  var avgCookiesEl = document.createElement('td');
+  avgCookiesEl.textContent = currentStore.avgCookies;
+  rowEl.appendChild(avgCookiesEl);
+
+  rowEl.appendChild(rowEl);
+}
+document.body.appendChild(tableEl);
 
 // break;
 // function randomInt(min, max){
