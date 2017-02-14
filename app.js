@@ -2,11 +2,11 @@
 
 // var sectionEl = document.getElementById('main-content');
 
-// var userElement = document.createElement('h1'); //step one: create html element node
+// var userElement = document.createElement('dt'); //step one: create html element node
 
 // userElement.setAttribute('id', 'made-an-element'); //step two: this is a method that changes an html element node
 //the first input here is the type of element that we're making, the next is the id
-//this would thus far do the following: <h1 id="made-an-element"></h1>
+//this would thus far do the following: <dt id="made-an-element"></dt>
 
 // sectionEl.appendChild(userElement);
 
@@ -18,7 +18,7 @@ var storesHtml = ['one-pike', 'sea-tac', 'sea-center', 'cap-hill', 'alki'];
 //   document.getElementsByClassName('locations');
 // }
 
-//Loop Store Titles to H1
+//Loop Store Titles to dt
 // function loopStore(){
 //   for(var t = 0; t < stores.length; t++){
 //     return stores[t];
@@ -110,26 +110,29 @@ var avgCookies = [onePike.avgHourly(), seaTac.avgHourly(), seaCenter.avgHourly()
 
 var eListStart = document.getElementById('cookie-list');
 var hOneStart = document.getElementById('body');
+var defListItems = document.getElementsByTagName('dl');
 
 for(var v = 0; v < stores.length; v++){
+  var loopDl = document.createElement('dl');
+  hOneStart.appendChild(loopDl);
   var loopedId = document.getElementById(stores[v]);
-  var hOne = document.createElement('h1');
+  var hOne = document.createElement('dt');
   hOne.setAttribute('id', storesHtml[v]);
   console.log(hOne);
   hOne.textContent = stores[v];
-  hOneStart.appendChild(hOne);
+  loopDl.appendChild(hOne);
   for(var h = 0; h < timeDay.length; h++){
-    var eListItem = document.createElement('li');
+    var eListItem = document.createElement('dd');
     console.log(aDay(onePike));
     eListItem.textContent = timeDay[h] + ': ' + aDay(onePike, seaTac, seaCenter, capHill, alki);
-    eListStart.appendChild(eListItem);
+    loopDl.appendChild(eListItem);
   }
   // break;
 }
 // loopAvgCookies();
 
 // for(var z = 0; 0 < stores.list; z++){
-//   var eListTitle = document.createElement('h1');
+//   var eListTitle = document.createElement('dt');
 //   console.log(loopstore());
 //   eListTitle.textContent = loopStore();
 //   ('body').appendChild(eListTitle);
