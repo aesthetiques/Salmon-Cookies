@@ -14,13 +14,18 @@ var timeDay = ['6am', '7am', '8am', '9am', '10am', '11 am', '12pm', '1pm', '2pm'
 var stores = ['1st and Pike', 'Seatac Airport', 'Seattle Center', 'Capitol Hill', 'Alki'];
 
 var eListStart = document.getElementById('cookie-list');
+var hOneStart = document.getElementById('body');
+
+// function hOneStart(){
+//   document.getElementsByClassName('locations');
+// }
 
 //Loop Store Titles to H1
-function loopStore(){
-  for(var t = 0; t < stores.length; t++){
-    return stores[t];
-  };
-}
+// function loopStore(){
+//   for(var t = 0; t < stores.length; t++){
+//     return stores[t];
+//   };
+// }
 
 //LOOP TIME OF DAY
 // function loopTime(){
@@ -29,6 +34,13 @@ function loopStore(){
 //     return timeDay[i];
 //   };
 // }
+
+//Loop stores
+function loopStores(){
+  for(var o = 0; o < stores.length; o++){
+    console.log(stores[i]);
+  }
+}
 
 //LOOP AVG COOKIES PER HR
 function loopAvgCookies(){
@@ -108,20 +120,29 @@ var avgCookies = [onePike.avgHourly(), seaTac.avgHourly(), seaCenter.avgHourly()
 //
 // }
 
-function loopTime(){
-  for(var i = 0; i < timeDay.length; i++){
-    console.log(avgCookies[i]);
-    console.log(timeDay[i]);
+// function loopTime(){
+//   for(var i = 0; i < timeDay.length; i++){
+//     console.log(avgCookies[i]);
+//     console.log(timeDay[i]);
+//     return timeDay[i];
+//   }
+// };
+
+// function printEverything(){
+for(var v = 0; v < stores.length; v++){
+  var hOne = document.createElement('h1');
+  // hOne.setAttribute('class', 'locations');
+  console.log();
+  hOne.textContent = stores[v];
+  hOneStart.appendChild(hOne);
+  for(var h = 0; h < timeDay.length; h++){
+    var eListItem = document.createElement('li');
+    console.log(aDay(onePike));
+    eListItem.textContent = timeDay[h] + ': ' + hOne.textContent;
+    eListStart.appendChild(eListItem);
   }
-};
-
-for(var h = 0; h < timeDay.length; h++){
-  var eListItem = document.createElement('li');
-  console.log(aDay(onePike));
-  eListItem.textContent = loopTime() + ': ' + aDay(onePike);
-  eListStart.appendChild(eListItem);
 }
-
+// }
 // storesList();
 // aDay(seaTac);
 // aDay(seaTac);
@@ -129,3 +150,4 @@ for(var h = 0; h < timeDay.length; h++){
 // aDay(alki);
 
 //DEMOING PRINTING TO PAGE
+printEverything();
