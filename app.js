@@ -107,6 +107,7 @@ var avgCookies = [onePike.avgHourly(), seaTac.avgHourly(), seaCenter.avgHourly()
 //   ('body').appendChild(eListTitle);
 //
 // }
+
 function loopTime(){
   for(var i = 0; i < timeDay.length; i++){
     console.log(avgCookies[i]);
