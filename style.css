@@ -1,3 +1,40 @@
+body {
+  background-color: #E6DEDC;
+}
+div{
+  background-color: #EB8F8E;
+}
+.container_12{
+  padding-left: 50px;
+}
+
+nav{
+  position: fixed;
+  width: 300px;
+  background-color: #EB8F8E;
+  left: 18.2%;
+}
+
 dt {
   font-weight: bold;
 }
+
+nav a{
+  opacity: .85;
+  /*background-color: #FAEBD7;*/
+  text-decoration: none;
+  text-transform: lowercase;
+  margin: 0 60px 0 75px;
+  font-family: helvetica;
+  font-weight: bold;
+  font-size: 24px;
+  color: #111111;
+  border-width: 1.5px;
+}
+
+.hidden {
+  display: none;
+}
+.active {
+  color: #FF7777;
+/* Drop Down Book Lists jQuery*/
