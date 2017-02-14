@@ -1,5 +1,9 @@
 'use strict';
 
+// $('.this').click(function(){
+//   $(this).next('*').slideToggle();
+// });
+
 var timeDay = ['6am', '7am', '8am', '9am', '10am', '11 am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 var stores = ['1st and Pike', 'Seatac Airport', 'Seattle Center', 'Capitol Hill', 'Alki'];
 var storesHtml = ['one-pike', 'sea-tac', 'sea-center', 'cap-hill', 'alki'];
@@ -18,18 +22,34 @@ function loopStores(){
 
 //LOOP THE HOURS OF DAY * loopAvgCookies();
 function aDay(x){
-  console.log(x.avgHourly());
+  // for(var y = 0; y < stores.length; y++){
+  //   return stores[y];
+  // };
   return x.avgHourly();
 };
 
-//--STORE OBJECTS BELOW--
+// function avgHourly(){
+//   return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
+// };
 
+function CookieStore(minCust, maxCust, avgSale) {
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.avgSale = maxSale;
+}
+
+CookieStore.prototype.avgHourly = function(){
+  return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
+};
+
+//--STORE OBJECTS BELOW--
+// var onePike = new CookieStore(23, 65, 6.3,);
 var onePike = {
   minCust: 23,
   maxCust: 65,
   avgSale: 6.3,
   avgHourly: function(){
-    return Math.floor(Math.random() * (((this.maxCust - this.minCust + 1) + this.minCust)) * this.avgSale);
+    return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
   },
 };
 
@@ -38,7 +58,7 @@ var seaTac = {
   maxCust: 24,
   avgSale: 1.2,
   avgHourly: function(){
-    return Math.floor(Math.random() * (((this.maxCust - this.minCust + 1) + this.minCust)) * this.avgSale);
+    return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
   }
 };
 
@@ -47,7 +67,7 @@ var seaCenter = {
   maxCust: 38,
   avgSale: 3.7,
   avgHourly: function(){
-    return Math.floor(Math.random() * (((this.maxCust - this.minCust + 1) + this.minCust)) * this.avgSale);
+    return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
   }
 };
 
@@ -56,7 +76,7 @@ var capHill = {
   maxCust: 38,
   avgSale: 2.3,
   avgHourly: function(){
-    return Math.floor(Math.random() * (((this.maxCust - this.minCust + 1) + this.minCust)) * this.avgSale);
+    return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
   }
 };
 
@@ -65,7 +85,7 @@ var alki = {
   maxCust: 16,
   avgSale: 4.6,
   avgHourly: function(){
-    return Math.floor(Math.random() * (((this.maxCust - this.minCust + 1) + this.minCust)) * this.avgSale);
+    return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
   }
 };
 
@@ -74,6 +94,7 @@ for(var v = 0; v < stores.length; v++){
   hOneStart.appendChild(loopDl);
   var loopedId = document.getElementById(stores[v]);
   var hOne = document.createElement('dt');
+  // hOne.setAttribute('class', 'slideOut');
   hOne.setAttribute('id', storesHtml[v]);
   hOne.textContent = stores[v];
   loopDl.appendChild(hOne);
