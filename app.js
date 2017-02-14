@@ -6,12 +6,13 @@
 
 // userElement.setAttribute('id', 'made-an-element'); //step two: this is a method that changes an html element node
 //the first input here is the type of element that we're making, the next is the id
-//this would thus far do the followeding: <h1 id="made-an-element"></h1>
+//this would thus far do the following: <h1 id="made-an-element"></h1>
 
 // sectionEl.appendChild(userElement);
 
 var timeDay = ['6am', '7am', '8am', '9am', '10am', '11 am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 var stores = ['1st and Pike', 'Seatac Airport', 'Seattle Center', 'Capitol Hill', 'Alki'];
+var storesHtml = ['one-pike', 'sea-tac', 'sea-center', 'cap-hill', 'alki'];
 
 // function hOneStart(){
 //   document.getElementsByClassName('locations');
@@ -107,6 +108,24 @@ var alki = {
 
 var avgCookies = [onePike.avgHourly(), seaTac.avgHourly(), seaCenter.avgHourly(), capHill.avgHourly(), alki.avgHourly()];
 
+var eListStart = document.getElementById('cookie-list');
+var hOneStart = document.getElementById('body');
+
+for(var v = 0; v < stores.length; v++){
+  var loopedId = document.getElementById(stores[v]);
+  var hOne = document.createElement('h1');
+  hOne.setAttribute('id', storesHtml[v]);
+  console.log(hOne);
+  hOne.textContent = stores[v];
+  hOneStart.appendChild(hOne);
+  for(var h = 0; h < timeDay.length; h++){
+    var eListItem = document.createElement('li');
+    console.log(aDay(onePike));
+    eListItem.textContent = timeDay[h] + ': ' + aDay(onePike, seaTac, seaCenter, capHill, alki);
+    eListStart.appendChild(eListItem);
+  }
+  // break;
+}
 // loopAvgCookies();
 
 // for(var z = 0; 0 < stores.list; z++){
@@ -127,23 +146,6 @@ var avgCookies = [onePike.avgHourly(), seaTac.avgHourly(), seaCenter.avgHourly()
 
 // function printEverything(){
 
-var eListStart = document.getElementById('cookie-list');
-var hOneStart = document.getElementById('body');
-
-for(var v = 0; v < stores.length; v++){
-  var hOne = document.createElement('h1');
-  // hOne.setAttribute('id', 'locations');
-  console.log();
-  hOne.textContent = stores[v];
-  hOneStart.appendChild(hOne);
-  for(var h = 0; h < timeDay.length; h++){
-    var eListItem = document.createElement('li');
-    console.log(aDay(onePike));
-    eListItem.textContent = timeDay[h] + ': ' + aDay(onePike, seaTac, seaCenter, capHill, alki);
-    eListStart.appendChild(eListItem);
-  }
-}
-
 // storesList();
 // aDay(seaTac);
 // aDay(seaTac);
@@ -151,4 +153,3 @@ for(var v = 0; v < stores.length; v++){
 // aDay(alki);
 
 //DEMOING PRINTING TO PAGE
-printEverything();
