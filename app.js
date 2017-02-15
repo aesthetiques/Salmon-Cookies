@@ -5,7 +5,7 @@
 // });
 
 var timeDay = ['6am', '7am', '8am', '9am', '10am', '11 am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
-var stores = ['1st and Pike', 'Seatac Airport', 'Seattle Center', 'Capitol Hill', 'Alki', 'Total'];
+var stores = ['1st and Pike', 'Seatac Airport', 'Seattle Center', 'Capitol Hill', 'Alki'];
 var storesHtml = ['one-pike', 'sea-tac', 'sea-center', 'cap-hill', 'alki'];
 
 //Loop stores
@@ -17,29 +17,32 @@ function loopStores(){
 
 //LOOP THE HOURS OF DAY * loopAvgCookies();
 function aDay(x){
+  // for(var x = 0; x < stores.length; x++)
   return x.avgHourly();
 };
 
 //Cookie store repo
 function CookieStore(minCust, maxCust, avgSale) {
-  this.minCust = minCust;
-  this.maxCust = maxCust;
-  this.avgSale = avgSale;
+  this.minCust = minCust; //maximum customers per hour
+  this.maxCust = maxCust; //minimum customers per hour
+  this.avgSale = avgSale; //avg sales per customer
+  this.saleTotal = 0;
 }
+
 //Our Stores
-var onePike = new CookieStore(23, 65, 6.3);
-var seaTac = new CookieStore(3, 24, 1.2);
-var seaCenter = new CookieStore(11, 38, 3.7);
-var capHill = new CookieStore(20, 38, 2.3);
-var alki = new CookieStore(2, 16, 4.6);
+var onePike = new CookieStore(23, 65, 6.3); //First and Pike Store
+var seaTac = new CookieStore(3, 24, 1.2); //Seatac Store
+var seaCenter = new CookieStore(11, 38, 3.7); //Seattle Center Store
+var capHill = new CookieStore(20, 38, 2.3); //Capitol Hill Store
+var alki = new CookieStore(2, 16, 4.6); //Alki Store
 
 CookieStore.prototype.avgHourly = function(){
   return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
-};
+}; //Function for calculating random number based on each location's info.
 
-var mainTable = document.getElementById('main-table');
-var cookieListEl = document.getElementById('cookie-list');
+var mainTable = document.getElementById('main-table'); //Get main table
 var bodyAppendEl = document.getElementById('main-table');
+var cookieListEl = document.getElementById('cookie-list');
 
 var tableHead = document.createElement('thead');
 mainTable.appendChild(tableHead);
