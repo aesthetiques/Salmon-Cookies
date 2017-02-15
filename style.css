@@ -1,5 +1,6 @@
 body {
   background-color: #E6DEDC;
+  min-height: 3000px;
 }
 div{
   background-color: #EB8F8E;
@@ -9,17 +10,58 @@ div{
 }
 
 nav{
+  display: inline-block;
+  border-radius: 12px;
   position: fixed;
-  width: 300px;
+  /*width: 300px;*/
   background-color: #EB8F8E;
   left: 18.2%;
+  opacity: .8;
 }
-
+/*nav a:nth-child(2){
+  display: inline-block;
+  border-radius: 12px;
+  position: absolute;
+  width: 300px;
+  background-color: #EB8F8E;
+  left: 24.55%;
+  opacity: .8;
+}
+nav a:nth-child(3){
+  display: inline-block;
+  border-radius: 12px;
+  position: absolute;
+  width: 300px;
+  background-color: #EB8F8E;
+  left: 24.55%;
+  opacity: .8;
+}
+nav a:nth-child(4){
+  display: inline-block;
+  border-radius: 12px;
+  position: absolute;
+  width: 300px;
+  background-color: #EB8F8E;
+  left: 24.55%;
+  opacity: .8;
+}*/
+/*
 dt {
   font-weight: bold;
+}*/
+
+
+.frasier-is-cool tr, .frasier-is-cool td{
+  border: 2px solid #000000;
+}
+
+thead{
+  border: 2px solid #000000;
+  border-bottom: 0px;
 }
 
 nav a{
+  border-radius: 15px 0px;
   opacity: .85;
   /*background-color: #FAEBD7;*/
   text-decoration: none;

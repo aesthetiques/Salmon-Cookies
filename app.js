@@ -5,13 +5,8 @@
 // });
 
 var timeDay = ['6am', '7am', '8am', '9am', '10am', '11 am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
-var stores = ['1st and Pike', 'Seatac Airport', 'Seattle Center', 'Capitol Hill', 'Alki'];
+var stores = ['1st and Pike', 'Seatac Airport', 'Seattle Center', 'Capitol Hill', 'Alki', 'Total'];
 var storesHtml = ['one-pike', 'sea-tac', 'sea-center', 'cap-hill', 'alki'];
-
-var eListStart = document.getElementById('cookie-list');
-var hOneStart = document.getElementById('body');
-var defListItems = document.getElementsByTagName('dl');
-var mainGrid = document.getElementsByClassName('');
 
 //Loop stores
 function loopStores(){
@@ -22,89 +17,147 @@ function loopStores(){
 
 //LOOP THE HOURS OF DAY * loopAvgCookies();
 function aDay(x){
-  // for(var y = 0; y < stores.length; y++){
-  //   return stores[y];
-  // };
   return x.avgHourly();
 };
 
-// function avgHourly(){
-//   return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
-// };
-
+//Cookie store repo
 function CookieStore(minCust, maxCust, avgSale) {
   this.minCust = minCust;
   this.maxCust = maxCust;
-  this.avgSale = maxSale;
+  this.avgSale = avgSale;
 }
+//Our Stores
+var onePike = new CookieStore(23, 65, 6.3);
+var seaTac = new CookieStore(3, 24, 1.2);
+var seaCenter = new CookieStore(11, 38, 3.7);
+var capHill = new CookieStore(20, 38, 2.3);
+var alki = new CookieStore(2, 16, 4.6);
 
 CookieStore.prototype.avgHourly = function(){
   return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
 };
 
-//--STORE OBJECTS BELOW--
-// var onePike = new CookieStore(23, 65, 6.3,);
-var onePike = {
-  minCust: 23,
-  maxCust: 65,
-  avgSale: 6.3,
-  avgHourly: function(){
-    return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
-  },
-};
+var mainTable = document.getElementById('main-table');
+var cookieListEl = document.getElementById('cookie-list');
+var bodyAppendEl = document.getElementById('main-table');
 
-var seaTac = {
-  minCust: 3,
-  maxCust: 24,
-  avgSale: 1.2,
-  avgHourly: function(){
-    return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
-  }
-};
+var tableHead = document.createElement('thead');
+mainTable.appendChild(tableHead);
 
-var seaCenter = {
-  minCust: 11,
-  maxCust: 38,
-  avgSale: 3.7,
-  avgHourly: function(){
-    return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
-  }
-};
+// spacer block for thead
+var spacerTh = document.createElement('th');
+tableHead.appendChild(spacerTh);
 
-var capHill = {
-  minCust: 20,
-  maxCust: 38,
-  avgSale: 2.3,
-  avgHourly: function(){
-    return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
-  }
-};
+for(var h = 0; h < timeDay.length; h++){
+  var eHeaderItem = document.createElement('th');
+  eHeaderItem.textContent = timeDay[h];
+  tableHead.appendChild(eHeaderItem);
+}
 
-var alki = {
-  minCust: 2,
-  maxCust: 16,
-  avgSale: 4.6,
-  avgHourly: function(){
-    return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
-  }
-};
-
+//
 for(var v = 0; v < stores.length; v++){
-  var loopDl = document.createElement('dl');
-  hOneStart.appendChild(loopDl);
-  var loopedId = document.getElementById(stores[v]);
-  var hOne = document.createElement('dt');
-  // hOne.setAttribute('class', 'slideOut');
-  hOne.setAttribute('id', storesHtml[v]);
-  hOne.textContent = stores[v];
-  loopDl.appendChild(hOne);
+  var loopTr = document.createElement('tr');
+  var storeTr = document.createElement('th');
+  bodyAppendEl.appendChild(loopTr);
+  storeTr.textContent = stores[v];
+  loopTr.appendChild(storeTr);
   for(var h = 0; h < timeDay.length; h++){
-    var eListItem = document.createElement('dd');
-    console.log(aDay(onePike));
-    eListItem.textContent = timeDay[h] + ': ' + aDay(onePike, seaTac, seaCenter, capHill, alki);
-    loopDl.appendChild(eListItem);
+    var storeTr = document.createElement('tr');
+    var eRowItem = document.createElement('td');
+    eRowItem.textContent = aDay(onePike, seaTac, seaCenter, capHill, alki);
+    loopTr.appendChild(eRowItem);
   }
 }
+
+// mainDiv.appendChild(loopTr);
+// var eHeaderItem = document.createElement('tr');
+// var loopedId = document.getElementById(stores[v]);
+// storeTr.setAttribute('id', storesHtml[v]);
+// timeDay[h] + ': ' +
+// var eHeaderItem = document.createElement('th');
+// eHeaderItem.textContent = timeDay[h];
+// tableHead.appendChild(eHeaderItem);
+
+// function avgHourly(){
+//   return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
+// };
+
+    //--STORE OBJECTS BELOW--
+
+    // var onePike = {
+    //   minCust: 23,
+    //   maxCust: 65,
+    //   avgSale: 6.3,
+    //   avgHourly: function(){
+    //     return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
+    //   },
+    // };
+    //
+    // var seaTac = {
+    //   minCust: 3,
+    //   maxCust: 24,
+    //
+    // var seaCenter = {
+    //   minCust: 11,
+    //   maxCust: 38,
+    //   avgSale: 3.7,
+    //   avgHourly: function(){
+    //     return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
+    //   }
+    // };
+    //
+    //   avgSale: 1.2,
+    //   avgHourly: function(){
+    //     return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
+    //   }
+    // };
+    //
+    // var capHill = {
+    //   minCust: 20,
+    //   maxCust: 38,
+    //   avgSale: 2.3,
+    //   avgHourly: function(){
+    //     return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
+    //   }
+    // };
+    //
+    // var alki = {
+    //   minCust: 2,
+    //   maxCust: 16,
+    //   avgSale: 4.6,
+    //   avgHourly: function(){
+    //     return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
+    //   }
+    // };
+    //
+
+// document. body.appendChild(mainDiv);
+
+// var stores = [pikePlace, otherStore, anotherStore];
+//
+// var tableEl = document.createElement('table');
+// for(b = 0; b < tableEl.length; b++){
+//   var currentStore = stores[b];
+//   var rowEl = document.createElement('tr');
+//   var nameEl = document.createElement('th');
+//   nameEl.textContent = currentStore.name;
+//   rowEl.appendChild(nameEl);
+//
+//   var minCustEl = document.createElement('td');
+//   minCustEl.textContent = currentStore.minCustomers;
+//   rowEl.appendChild(minCustEl);
+//
+//   var maxCustEl = document.createElement('td');
+//   maxCustEl.textContent = currentStore.maxCustomers;
+//   rowEl.appendChild(maxCustEl);
+//
+//   var avgCookiesEl = document.createElement('td');
+//   avgCookiesEl.textContent = currentStore.avgCookies;
+//   rowEl.appendChild(avgCookiesEl);
+//
+//   rowEl.appendChild(rowEl);
+// }
+// document.body.appendChild(tableEl);
 
 // break;
 // function randomInt(min, max){
@@ -122,11 +175,11 @@ for(var v = 0; v < stores.length; v++){
 
 // var avgCookies = [onePike.avgHourly(), seaTac.avgHourly(), seaCenter.avgHourly(), capHill.avgHourly(), alki.avgHourly()];
 
-// function hOneStart(){
+// function bodyAppendEl(){
 //   document.getElementsByClassName('locations');
 // }
 
-//Loop Store Titles to dt
+//Loop Store Titles to td
 // function loopStore(){
 //   for(var t = 0; t < stores.length; t++){
 //     return stores[t];
@@ -143,18 +196,18 @@ for(var v = 0; v < stores.length; v++){
 
 // var sectionEl = document.getElementById('main-content');
 
-// var userElement = document.createElement('dt'); //step one: create html element node
+// var userElement = document.createElement('td'); //step one: create html element node
 
 // userElement.setAttribute('id', 'made-an-element'); //step two: this is a method that changes an html element node
 //the first input here is the type of element that we're making, the next is the id
-//this would thus far do the following: <dt id="made-an-element"></dt>
+//this would thus far do the following: <td id="made-an-element"></td>
 
 // sectionEl.appendChild(userElement);
 
 // loopAvgCookies();
 
 // for(var z = 0; 0 < stores.list; z++){
-//   var eListTitle = document.createElement('dt');
+//   var eListTitle = document.createElement('td');
 //   console.log(loopstore());
 //   eListTitle.textContent = loopStore();
 //   ('body').appendChild(eListTitle);
