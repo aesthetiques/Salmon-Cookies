@@ -9,14 +9,23 @@ div{
 }
 
 nav{
-  position: fixed;
+  /*position: fixed;*/
   width: 300px;
   background-color: #EB8F8E;
   left: 18.2%;
 }
-
+/*
 dt {
   font-weight: bold;
+}*/
+
+
+.frasier-is-cool tr, .frasier-is-cool td{
+  border: 2px solid #000000;
+}
+
+thead{
+  border: 2px solid #000000;
 }
 
 nav a{
