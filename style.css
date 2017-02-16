@@ -1,6 +1,7 @@
 body {
   background-color: #E6DEDC;
   min-height: 3000px;
+  border: 2px solid;
 }
 #fishy{
   background-color: #EB8F8E;

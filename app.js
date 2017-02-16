@@ -1,21 +1,12 @@
 'use strict';
 
-// $('.this').click(function(){
-//   $(this).next('*').slideToggle();
-// });
+$('.slide').click(function(){
+  $(this).next('*').fadeToggle(800);
+});
 
 var timeDay = ['6am', '7am', '8am', '9am', '10am', '11 am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
-var storesConstructed = [];
-
-//Get element access
 var mainTable = document.getElementById('main-table'); //Get main table
-
-// //Loop stores
-// function loopStores(){
-//   for(var o = 0; o < stores.length; o++){
-//     console.log(stores[i]);
-//   }
-// }
+//Get element access <table></table>
 
 function loopRenderTable(){
   for(var w = 0; w < stores.length; w++){
@@ -28,7 +19,8 @@ function CookieStore(name, minCust, maxCust, avgSale) {
   this.name = name;
   this.minCust = minCust; //maximum customers per hour
   this.maxCust = maxCust; //minimum customers per hour
-  this.avgSale = avgSale; //avg sales per customer
+  this.avgSale = avgSale; //avg sales per customery
+  this.CookieArray = [];
   // this.saleTotal = 0;
 }
 
@@ -39,10 +31,8 @@ var seaCenter = new CookieStore('Seattle Center', 11, 38, 3.7); //Seattle Center
 var capHill = new CookieStore('Capitol Hill', 20, 38, 2.3); //Capitol Hill Store
 var alki = new CookieStore('Alki', 2, 16, 4.6); //Alki Store
 
-storesConstructed.push(onePike, seaTac, seaCenter, capHill, alki);
-console.log(storesConstructed);
-
 var stores = [onePike, seaTac, seaCenter, capHill, alki];
+
 //RNGEESUS
 CookieStore.prototype.avgHourly = function(){
   return Math.floor(Math.floor((Math.random() * (this.maxCust - this.minCust + 1) + this.minCust)) * this.avgSale);
@@ -50,7 +40,6 @@ CookieStore.prototype.avgHourly = function(){
 
 //CREATE PROTOTYPE THAT CREATES A TH FOR STORE TITLE AND TDS
 CookieStore.prototype.renderTable = function(){
-  // for(var v = 0; v < stores.length; v++){
   var loopTr = document.createElement('tr');
   var storeTh = document.createElement('th');
   mainTable.appendChild(loopTr);
@@ -58,7 +47,9 @@ CookieStore.prototype.renderTable = function(){
   loopTr.appendChild(storeTh);
   for(var h = 0; h < timeDay.length; h++){
     var eRowItem = document.createElement('td');
-    eRowItem.textContent = this.avgHourly();
+    var avgCookiesArray = this.avgHourly();
+    eRowItem.textContent = avgCookiesArray;
+    this.CookieArray.push(avgCookiesArray);
     loopTr.appendChild(eRowItem);
   }
 };
@@ -84,8 +75,10 @@ loopRenderTable();
 
 // use blur for non-numbers in the boxes
 var storeFormEl = document.getElementById('new-store-form'); //creates form
+//^^html element node
 
 storeFormEl.addEventListener('submit', handleSubmit); //hitting false makes the older browsers bubble
+//^^you can have an addEventListener for any html element node
 
 function handleSubmit(event){
   event.preventDefault(); //stops page from reloading/sending data to server - the default setting for submission
@@ -106,8 +99,15 @@ function handleSubmit(event){
   stores.push(nuevoStore);
   // storesConstructed.push(storeName);
   // console.log(store);
-  nuevoStore.renderTable();
+  nuevoStore.renderTable(); //add whatever nuevoStore is to the table
 }
+
+// //Loop stores
+// function loopStores(){
+//   for(var o = 0; o < stores.length; o++){
+//     console.log(stores[i]);
+//   }
+// }
 
 // mainDiv.appendChild(loopTr);
 // var eHeaderItem = document.createElement('tr');
