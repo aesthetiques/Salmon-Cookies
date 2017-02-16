@@ -5,68 +5,108 @@
 // });
 
 var timeDay = ['6am', '7am', '8am', '9am', '10am', '11 am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
-var stores = ['1st and Pike', 'Seatac Airport', 'Seattle Center', 'Capitol Hill', 'Alki', 'Total'];
-var storesHtml = ['one-pike', 'sea-tac', 'sea-center', 'cap-hill', 'alki'];
+var storesConstructed = [];
 
-//Loop stores
-function loopStores(){
-  for(var o = 0; o < stores.length; o++){
-    console.log(stores[i]);
+//Get element access
+var mainTable = document.getElementById('main-table'); //Get main table
+
+// //Loop stores
+// function loopStores(){
+//   for(var o = 0; o < stores.length; o++){
+//     console.log(stores[i]);
+//   }
+// }
+
+function loopRenderTable(){
+  for(var w = 0; w < stores.length; w++){
+    stores[w].renderTable();
   }
 }
-
-//LOOP THE HOURS OF DAY * loopAvgCookies();
-function aDay(x){
-  return x.avgHourly();
-};
 
 //Cookie store repo
-function CookieStore(minCust, maxCust, avgSale) {
-  this.minCust = minCust;
-  this.maxCust = maxCust;
-  this.avgSale = avgSale;
+function CookieStore(name, minCust, maxCust, avgSale) {
+  this.name = name;
+  this.minCust = minCust; //maximum customers per hour
+  this.maxCust = maxCust; //minimum customers per hour
+  this.avgSale = avgSale; //avg sales per customer
+  // this.saleTotal = 0;
 }
+
 //Our Stores
-var onePike = new CookieStore(23, 65, 6.3);
-var seaTac = new CookieStore(3, 24, 1.2);
-var seaCenter = new CookieStore(11, 38, 3.7);
-var capHill = new CookieStore(20, 38, 2.3);
-var alki = new CookieStore(2, 16, 4.6);
+var onePike = new CookieStore('First and Pike', 23, 65, 6.3); //First and Pike Store
+var seaTac = new CookieStore('Seatac Airport', 3, 24, 1.2); //Seatac Store
+var seaCenter = new CookieStore('Seattle Center', 11, 38, 3.7); //Seattle Center Store
+var capHill = new CookieStore('Capitol Hill', 20, 38, 2.3); //Capitol Hill Store
+var alki = new CookieStore('Alki', 2, 16, 4.6); //Alki Store
 
+storesConstructed.push(onePike, seaTac, seaCenter, capHill, alki);
+console.log(storesConstructed);
+
+var stores = [onePike, seaTac, seaCenter, capHill, alki];
+//RNGEESUS
 CookieStore.prototype.avgHourly = function(){
-  return Math.floor(Math.random() * ((this.maxCust - this.minCust + 1) + this.minCust) * this.avgSale);
-};
+  return Math.floor(Math.floor((Math.random() * (this.maxCust - this.minCust + 1) + this.minCust)) * this.avgSale);
+}; //Function for calculating random number based on each location's info.
 
-var mainTable = document.getElementById('main-table');
-var cookieListEl = document.getElementById('cookie-list');
-var bodyAppendEl = document.getElementById('main-table');
-
-var tableHead = document.createElement('thead');
-mainTable.appendChild(tableHead);
-
-// spacer block for thead
-var spacerTh = document.createElement('th');
-tableHead.appendChild(spacerTh);
-
-for(var h = 0; h < timeDay.length; h++){
-  var eHeaderItem = document.createElement('th');
-  eHeaderItem.textContent = timeDay[h];
-  tableHead.appendChild(eHeaderItem);
-}
-
-//
-for(var v = 0; v < stores.length; v++){
+//CREATE PROTOTYPE THAT CREATES A TH FOR STORE TITLE AND TDS
+CookieStore.prototype.renderTable = function(){
+  // for(var v = 0; v < stores.length; v++){
   var loopTr = document.createElement('tr');
-  var storeTr = document.createElement('th');
-  bodyAppendEl.appendChild(loopTr);
-  storeTr.textContent = stores[v];
-  loopTr.appendChild(storeTr);
+  var storeTh = document.createElement('th');
+  mainTable.appendChild(loopTr);
+  storeTh.textContent = this.name;
+  loopTr.appendChild(storeTh);
   for(var h = 0; h < timeDay.length; h++){
-    var storeTr = document.createElement('tr');
     var eRowItem = document.createElement('td');
-    eRowItem.textContent = aDay(onePike, seaTac, seaCenter, capHill, alki);
+    eRowItem.textContent = this.avgHourly();
     loopTr.appendChild(eRowItem);
   }
+};
+
+var tableHead = document.createElement('thead');//<thead> </thead>
+mainTable.appendChild(tableHead); //<table> <thead></thead> </table>
+
+// spacer block for thead
+var spacerTh = document.createElement('th');//<thead> </thead>
+tableHead.appendChild(spacerTh); // //<thead> <th></th> </thead>
+
+for(var h = 0; h < timeDay.length; h++){
+  var eHeaderItem = document.createElement('th'); //<th> </th>
+  eHeaderItem.textContent = timeDay[h]; //< >
+  tableHead.appendChild(eHeaderItem); //< >
+}
+
+loopRenderTable();
+
+//EVENT LISTENERS
+
+// WILL NEED A PARSEINT TO TURN THE FIELD INPUT INTO NON-STRINGS
+
+// use blur for non-numbers in the boxes
+var storeFormEl = document.getElementById('new-store-form'); //creates form
+
+storeFormEl.addEventListener('submit', handleSubmit); //hitting false makes the older browsers bubble
+
+function handleSubmit(event){
+  event.preventDefault(); //stops page from reloading/sending data to server - the default setting for submission
+  event.stopPropagation(); //stops bubbling, stop capturing
+
+  var storeName = event.target.cookieStoreName.value; //this will log whatever the event's goal, or "target" action is
+  var minCust = parseInt(event.target.minCust.value); //this will log whatever the event's goal, or "target" action is
+  var maxCust = parseInt(event.target.maxCust.value); //this will log whatever the event's goal, or "target" action is
+  var avgSale = parseFloat(event.target.avgSale.value); //this will log whatever the event's goal, or "target" action is
+
+  console.log(storeName); //this will log whatever the event's goal, or "target" action is
+  console.log(minCust); //this will log whatever the event's goal, or "target" action is
+  console.log(maxCust); //this will log whatever the event's goal, or "target" action is
+  console.log(avgSale); //this will log whatever the event's goal, or "target" action is
+  console.log('user pressed submit button on form');
+
+  var nuevoStore = new CookieStore(storeName, minCust, maxCust, avgSale);
+  stores.push(nuevoStore);
+  // storesConstructed.push(storeName);
+  // console.log(store);
+  nuevoStore.renderTable();
 }
 
 // mainDiv.appendChild(loopTr);
@@ -175,7 +215,7 @@ for(var v = 0; v < stores.length; v++){
 
 // var avgCookies = [onePike.avgHourly(), seaTac.avgHourly(), seaCenter.avgHourly(), capHill.avgHourly(), alki.avgHourly()];
 
-// function bodyAppendEl(){
+// function mainTable(){
 //   document.getElementsByClassName('locations');
 // }
 
