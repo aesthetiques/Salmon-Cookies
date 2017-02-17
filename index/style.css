@@ -1,19 +1,17 @@
 *{
-  margin-top: 0;
+  margin: 0;
 }
 
 body {
-  padding-top: 50px;
   background-color: #E6DEDC;
-  min-height: 1500px;
+  min-height: 3000px;
+  border: 2px solid;
 }
-
-#slide{
-  margin-top: 100px;
-  margin: auto;
-  color: #820107;
+#fishy{
+  margin: 0 auto;
+  margin-top: 100 px;
+  background-color: #EB8F8E;
 }
-
 /*.container_12{
   padding-left: 50px;
 }*/
@@ -27,36 +25,28 @@ body {
   opacity: .8;
 }*/
 
-
-.frasier-is-cool tr, .frasier-is-cool td, td, th{
-  margin-top: 10px;
+.frasier-is-cool tr, .frasier-is-cool td{
   border: 2px solid #000000;
-  padding: 8px;
 }
 
-thead {
+thead{
   border: 2px solid #000000;
   border-bottom: 0px;
 }
 
-#nav-bar {
-  radius: 3px;
-  top: 0;
-  height: 50px;
+nav{
   position: fixed;
-  width: 100%;
-  background-color: #820107;
-  margin-bottom: 50px;
 }
 
-#nav-bar a{
-  background-color: #131313;
-  border-radius: 3px;
+nav a{
   display: inline-block;
   border: solid #111111;
+  border-radius: 5px;
   opacity: .85;
+  background-color: #111111;
   text-decoration: none;
   text-transform: lowercase;
+  margin: 0 auto;
   font-family: helvetica;
   font-weight: bold;
   font-size: 24px;
@@ -70,6 +60,9 @@ thead {
 .active {
   color: #FF7777;
 /* Drop Down Book Lists jQuery*/
+
+#first-user-heading{
+  color: blue;
 }
 
 label, input{
@@ -77,18 +70,7 @@ label, input{
 }
 
 #new-store-form{
+  display: block;
+  width: 30%
   margin: 0 auto;
-  padding: 8px;
-}
-
-fieldset {
-  color: #131313;
-  background-color: #820107;
-}
-
-button{
-  radius: 3px;
-  text-align: center;
-  color: #131313;
-  background-color: #820107;
 }
