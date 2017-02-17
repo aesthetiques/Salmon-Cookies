@@ -11,13 +11,21 @@
    src="https://code.jquery.com/jquery-3.1.1.js"
    integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
    crossorigin="anonymous"></script>
-  <div class="container_16">
+  <div class="container_16 pull_6">
    <nav id="nav-bar">
-     <a id="nav-bar-item" href="#">Home</a>
-     <a id="nav-bar-item" href="#">Catering</a>
-     <a id="nav-bar-item" href="#">About Us</a>
-     <a id="nav-bar-item" href="#">Careers</a>
-     <img src="salmon.png" />
+     <ul>
+       <li><a id="nav-bar-item" href="../index.html">Home</a></li>
+       <li><a id="nav-bar-item" href="#">Catering</a></li>
+       <li><a id="nav-bar-item" href="#">About Us</a></li>
+       <li><a id="nav-bar-item" class="dropdown" href="#">Careers</a></li>
+     </ul>
+     <div id="fish">
+       <img src="salmon.png" id="salmon_pix" />
+     </div>
+<!--
+     <div class="dropdown-content">
+
+     <p>Hello World!</p></div> -->
    </nav>
  </div>
   </head>
@@ -27,11 +35,15 @@
       <div class="slide" id="slide">
       </div>
 
+      <div class="dropdown">
+
+
+      </div>
     <!-- table -->
     <div id="top-header">
 &nbsp;
     </div>
-    <form id="new-store-form" class="grid_6">
+    <form id="new-store-form" class="grid_2">
       <fieldset>
         <!-- Store Name -->
         <legend>Enter New Cookie Store Info:</legend>
@@ -58,7 +70,7 @@
   </div>
 
 
-    <div class="grid_6">
+    <div class="grid_6 push_1">
         <table id="main-table" class="frasier-is-cool">
     <!--  table footer -->
         </table>
