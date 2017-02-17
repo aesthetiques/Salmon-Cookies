@@ -1,15 +1,19 @@
+*{
+  margin-top: 0;
+}
 body {
   background-color: #E6DEDC;
-  min-height: 3000px;
-  border: 2px solid;
+  min-height: 1500px;
 }
+
 #fishy{
+  top: 100px;
   background-color: #EB8F8E;
-  margin: 0 auto;
 }
-.container_12{
+
+/*.container_12{
   padding-left: 50px;
-}
+}*/
 
 /*.container_12 nav{
   display: inline-block;
@@ -20,28 +24,32 @@ body {
   opacity: .8;
 }*/
 
-.frasier-is-cool tr, .frasier-is-cool td{
+
+.frasier-is-cool tr, .frasier-is-cool td, td, th{
   border: 2px solid #000000;
+  padding: 3px;
 }
 
-thead{
+thead {
   border: 2px solid #000000;
   border-bottom: 0px;
 }
 
-nav{
+#nav-bar {
+  top: 0;
+  height: 50px;
   position: fixed;
+  width: 100%;
+  background-color: #820107;
+  margin-bottom: 50px;
 }
 
-nav a{
+#nav-bar a{
   display: inline-block;
   border: solid #111111;
-  border-radius: 5px;
   opacity: .85;
-  background-color: #111111;
   text-decoration: none;
   text-transform: lowercase;
-  margin: 0 auto;
   font-family: helvetica;
   font-weight: bold;
   font-size: 24px;
@@ -55,9 +63,6 @@ nav a{
 .active {
   color: #FF7777;
 /* Drop Down Book Lists jQuery*/
-
-#first-user-heading{
-  color: blue;
 }
 
 label, input{
@@ -66,6 +71,6 @@ label, input{
 
 #new-store-form{
   display: block;
-  width: 30%
   margin: 0 auto;
+  text-align: center;
 }
