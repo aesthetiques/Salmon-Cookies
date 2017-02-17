@@ -1,14 +1,17 @@
 *{
   margin-top: 0;
 }
+
 body {
+  padding-top: 50px;
   background-color: #E6DEDC;
   min-height: 1500px;
 }
 
-#fishy{
-  top: 100px;
-  background-color: #EB8F8E;
+#slide{
+  margin-top: 100px;
+  margin: auto;
+  color: #820107;
 }
 
 /*.container_12{
@@ -26,8 +29,9 @@ body {
 
 
 .frasier-is-cool tr, .frasier-is-cool td, td, th{
+  margin-top: 10px;
   border: 2px solid #000000;
-  padding: 3px;
+  padding: 8px;
 }
 
 thead {
@@ -36,6 +40,7 @@ thead {
 }
 
 #nav-bar {
+  radius: 3px;
   top: 0;
   height: 50px;
   position: fixed;
@@ -45,6 +50,8 @@ thead {
 }
 
 #nav-bar a{
+  background-color: #131313;
+  border-radius: 3px;
   display: inline-block;
   border: solid #111111;
   opacity: .85;
@@ -70,7 +77,18 @@ label, input{
 }
 
 #new-store-form{
-  display: block;
   margin: 0 auto;
+  padding: 8px;
+}
+
+fieldset {
+  color: #131313;
+  background-color: #820107;
+}
+
+button{
+  radius: 3px;
   text-align: center;
+  color: #131313;
+  background-color: #820107;
 }
