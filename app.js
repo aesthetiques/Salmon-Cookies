@@ -89,15 +89,16 @@ var titleHeader = document.createElement('th'); //<th> </th>
 titleHeader .textContent = 'Total';
 tableHead.appendChild(titleHeader); //<thead> <th></th> </thead>
 
-//define the table footer that the totals will go into, and append to parent element
-var tableFoot = document.createElement('tfoot');//<tfoot> </tfoot>
-mainTable.appendChild(tableFoot); //<table> <tfoot></tfoot> </table>
-var storeTotalBlock = document.createElement('td');
-tableFoot.appendChild(storeTotalBlock);
-storeTotalBlock.textContent = 'Total';
-
 //Makes totals at the bottom of the table
+
 function totalBottomRow(){
+  //define the table footer that the totals will go into, and append to parent element
+  var tableFoot = document.createElement('tfoot');//<tfoot> </tfoot>
+  tableFoot.setAttribute('id', 'table-footer');
+  mainTable.appendChild(tableFoot); //<table> <tfoot></tfoot> </table>
+  var storeTotalBlock = document.createElement('td'); //<td></td>
+  tableFoot.appendChild(storeTotalBlock); //<tfoot> <td></td> </tfoot>
+  storeTotalBlock.textContent = 'Total';
   var cookieTotal = 0;
   for(var h = 0; h < timeDay.length; h++) {
     if(h < timeDay.length){
@@ -117,6 +118,9 @@ function totalBottomRow(){
       tableFootData.text = cookieTotal;
     }
   }
+  var totalTotal = document.createElement('td'); //<td></td>
+  tableFoot.appendChild(totalTotal); //<table> <tfoot></tfoot> </table>
+  totalTotal.textContent = cookieTotal;
 }
 
 loopRenderTable();
@@ -153,6 +157,9 @@ function handleSubmit(event){
   // storesConstructed.push(storeName);
   // console.log(store);
   nuevoStore.renderTable(); //add whatever nuevoStore is to the table
+  var footer = document.getElementById('table-footer'); //allows us to access the #table-footer from html
+  footer.remove();
+  totalBottomRow();
 }
 
 // //Loop stores
