@@ -1,17 +1,52 @@
 *{
-  margin: 0;
+  margin-top: 0;
 }
 
+html{
+  /*css tricks had a way to adjust an img in a page at all times, no matter screen or browser size*/
+  background: url("../background.") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/*#613318;*/
+/*660000*/
+
 body {
-  background-color: #E6DEDC;
-  min-height: 3000px;
-  border: 2px solid;
+  color: #E6DEDC;
+  padding-top: 50px;
+   background-image: url("../background.jpg");
+  /*background-color: #7e3b23;*/
+  min-height: 1500px;
 }
-#fishy{
-  margin: 0 auto;
-  margin-top: 100 px;
-  background-color: #EB8F8E;
+
+#bodybodybody{
+    background-color: #660000;
+    background: rgba(102,0,0,0.5);
 }
+
+table {
+  background-color: #660000;
+  background: rgba(102,0,0,0.5);
+}
+
+#top-header{
+  height: 80px;
+  background-color: #660000;
+  opacity: .30;
+}
+
+#slide{
+  margin-top: 100px;
+  margin: auto;
+  color: #820107;
+}
+
+/*div {
+  background-color: #000000;
+}*/
 /*.container_12{
   padding-left: 50px;
 }*/
@@ -25,28 +60,38 @@ body {
   opacity: .8;
 }*/
 
-.frasier-is-cool tr, .frasier-is-cool td{
-  border: 2px solid #000000;
+
+.frasier-is-cool tr, .frasier-is-cool td, td, th{
+  margin-top: 10px;
+  border: 2px solid #E6DEDC;
+  padding: 8px;
 }
 
-thead{
+thead {
   border: 2px solid #000000;
   border-bottom: 0px;
 }
 
-nav{
+#nav-bar {
+  radius: 3px;
+  top: 0;
+  height: 55px;
   position: fixed;
+  width: 100%;
+  background-color: #660000;
 }
 
-nav a{
+#nav-bar-item{
+  margin-left: 2px;
+  margin-right: -1px;
+  margin-top: 6.5px;
+  background-color: #131313;
+  border-radius: 3px;
   display: inline-block;
   border: solid #111111;
-  border-radius: 5px;
   opacity: .85;
-  background-color: #111111;
   text-decoration: none;
   text-transform: lowercase;
-  margin: 0 auto;
   font-family: helvetica;
   font-weight: bold;
   font-size: 24px;
@@ -60,9 +105,6 @@ nav a{
 .active {
   color: #FF7777;
 /* Drop Down Book Lists jQuery*/
-
-#first-user-heading{
-  color: blue;
 }
 
 label, input{
@@ -70,7 +112,18 @@ label, input{
 }
 
 #new-store-form{
-  display: block;
-  width: 30%
   margin: 0 auto;
+  padding: 8px;
+}
+
+fieldset {
+  color: #E6DEDC;
+  background-color: #660000;
+}
+
+button{
+  radius: 3px;
+  text-align: center;
+  color: #E6DEDC;
+  background-color: #820107;
 }

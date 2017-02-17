@@ -5,61 +5,80 @@
     <title></title>
     <link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
     <link rel="stylesheet" type="text/css" media="all" href="css/text.css" />
-    <link rel="stylesheet" type="text/css" media="all" href="css/960_24_col.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="css/960.css" />
     <link rel="stylesheet" href="style.css" />
     <script
    src="https://code.jquery.com/jquery-3.1.1.js"
    integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
    crossorigin="anonymous"></script>
-   <nav id="nav-bar" class="container_12">
-     <a href="#">Home</a>
-     <a href="#">Catering</a>
-     <a href="#">About Us</a>
-     <a href="#">Careers</a>
+  <div class="container_16">
+   <nav id="nav-bar">
+     <a id="nav-bar-item" href="#">Home</a>
+     <a id="nav-bar-item" href="#">Catering</a>
+     <a id="nav-bar-item" href="#">About Us</a>
+     <a id="nav-bar-item" href="#">Careers</a>
+     <img src="salmon.png" />
    </nav>
+ </div>
   </head>
+
+
   <body id="body" class="container_12">
-    <div class="slide" id="slide">
-      <img src="salmon.png" />
+      <div class="slide" id="slide">
+      </div>
+
+    <!-- table -->
+    <div id="top-header">
+&nbsp;
+    </div>
+    <form id="new-store-form" class="grid_6">
+      <fieldset>
+        <!-- Store Name -->
+        <legend>Enter New Cookie Store Info:</legend>
+        <label for="cookieStoreName">Cookie Store Name:</label>
+        <input type="text" name="cookieStoreName">
+
+        <!-- Constructors' Data -->
+        <!-- parseInt for numbers here -->
+        <label for="minCust">Minimum Customers/Hr</label>
+        <input type="number" name="minCust">
+        <!--  -->
+        <!-- parseInt for numbers here -->
+        <label for="maxCust">Maximum Customers/Hr</label>
+        <input type="number" name="maxCust">
+        <!--  -->
+        <!-- parseInt for numbers here -->
+        <label for="avgSale">Average Cookies/Customer</label>
+        <input type="number" name="avgSale">
+        <!--  -->
+        <!-- Add new Store -->
+        <button type="submit">Submit</button>
+      </fieldset>
+    </form>
+  </div>
+
+
+    <div class="grid_6">
+        <table id="main-table" class="frasier-is-cool">
+    <!--  table footer -->
+        </table>
     </div>
 
-<!-- table -->
-    <table id="main-table" class="frasier-is-cool grid_6">
 
-<!--  table footer -->
-    </table>
 
-    <!-- Add new Store -->
-      <form id="new-store-form" class="grid_8">
-        <fieldset>
-          <!-- Store Name -->
-          <legend>Enter New Cookie Store Info:</legend>
-          <label for="cookieStoreName">Cookie Store Name:</label>
-          <input type="text" name="cookieStoreName">
 
-          <!-- Constructors' Data -->
-          <!-- parseInt for numbers here -->
-          <label for="minCust">Minimum Customers/Hr</label>
-          <input type="number" name="minCust">
-          <!--  -->
-          <!-- parseInt for numbers here -->
-          <label for="maxCust">Maximum Customers/Hr</label>
-          <input type="number" name="maxCust">
-          <!--  -->
-          <!-- parseInt for numbers here -->
-          <label for="avgSale">Average Cookies/Customer</label>
-          <input type="number" name="avgSale">
-          <!--  -->
-          <button type="submit">Submit</button>
-        </fieldset>
-      </form>
 
-    <!-- </div> -->
-    <script src="app.js" type="text/javascript">
-    </script>
-    <script
-   src="https://code.jquery.com/jquery-3.1.1.js"
-   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
-   crossorigin="anonymous"></script>
+
+
+
+
+        <!-- </div> -->
+        <script src="app.js" type="text/javascript">
+        </script>
+        <script
+       src="https://code.jquery.com/jquery-3.1.1.js"
+       integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+       crossorigin="anonymous"></script>
+   </div>
   </body>
 </html>

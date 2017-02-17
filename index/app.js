@@ -4,9 +4,16 @@ $('.slide').click(function(){
   $(this).next('*').fadeToggle(800);
 });
 
-var timeDay = ['6am', '7am', '8am', '9am', '10am', '11 am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var timeDay = ['6am', '7am', '8am', '9am', '10am', '11 am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 var mainTable = document.getElementById('main-table'); //Get main table
 //Get element access <table></table>
+
+// var eRowItem = document.createElement('td');
+
+// }else if{
+// eRowItem.textContent = avgCookiesArray;
+// this.CookieArray.push(avgCookiesArray);
+// loopTr.appendChild(eRowItem);
 
 function loopRenderTable(){
   for(var w = 0; w < stores.length; w++){
@@ -20,8 +27,8 @@ function CookieStore(name, minCust, maxCust, avgSale) {
   this.minCust = minCust; //maximum customers per hour
   this.maxCust = maxCust; //minimum customers per hour
   this.avgSale = avgSale; //avg sales per customery
-  this.CookieArray = [];
-  // this.saleTotal = 0;
+  this.cookieArray = [];
+  this.totalSales = 0;
 }
 
 //Our Stores
@@ -49,9 +56,18 @@ CookieStore.prototype.renderTable = function(){
     var eRowItem = document.createElement('td');
     var avgCookiesArray = this.avgHourly();
     eRowItem.textContent = avgCookiesArray;
-    this.CookieArray.push(avgCookiesArray);
+    this.cookieArray.push(avgCookiesArray);
     loopTr.appendChild(eRowItem);
+    this.totalSales = 0;
   }
+  //measures all sales and saves them to their respective cookie store
+  for(var d = 0; d < this.cookieArray.length; d++){
+    this.totalSales += this.cookieArray[d];
+  }
+  //makes a final column for each store, which contains the totals of each row.
+  var totalColumn = document.createElement('td');
+  totalColumn.textContent = this.totalSales;
+  loopTr.appendChild(totalColumn);
 };
 
 var tableHead = document.createElement('thead');//<thead> </thead>
@@ -59,15 +75,56 @@ mainTable.appendChild(tableHead); //<table> <thead></thead> </table>
 
 // spacer block for thead
 var spacerTh = document.createElement('th');//<thead> </thead>
+spacerTh.textContent = 'Stores';
 tableHead.appendChild(spacerTh); // //<thead> <th></th> </thead>
 
+//creates header with time range
 for(var h = 0; h < timeDay.length; h++){
   var eHeaderItem = document.createElement('th'); //<th> </th>
-  eHeaderItem.textContent = timeDay[h]; //< >
-  tableHead.appendChild(eHeaderItem); //< >
+  eHeaderItem.textContent = timeDay[h];
+  tableHead.appendChild(eHeaderItem); //<thead> <th></th> </thead>
+}
+
+var titleHeader = document.createElement('th'); //<th> </th>
+titleHeader .textContent = 'Total';
+tableHead.appendChild(titleHeader); //<thead> <th></th> </thead>
+
+//Makes totals at the bottom of the table
+
+function totalBottomRow(){
+  //define the table footer that the totals will go into, and append to parent element
+  var tableFoot = document.createElement('tfoot');//<tfoot> </tfoot>
+  tableFoot.setAttribute('id', 'table-footer');
+  mainTable.appendChild(tableFoot); //<table> <tfoot></tfoot> </table>
+  var storeTotalBlock = document.createElement('td'); //<td></td>
+  tableFoot.appendChild(storeTotalBlock); //<tfoot> <td></td> </tfoot>
+  storeTotalBlock.textContent = 'Total';
+  var cookieTotal = 0;
+  for(var h = 0; h < timeDay.length; h++) {
+    if(h < timeDay.length){
+      var totalRow = 0;
+      for(var m = 0; m < stores.length; m++){
+        var currentStore = stores[m];
+        totalRow += currentStore.cookieArray[h];
+        console.log(currentStore.cookieArray[h]);
+      }
+      var tableFootData = document.createElement('td');//<tfoot> </tfoot>
+      tableFoot.appendChild(tableFootData); //<table> <tfoot></tfoot> </table>
+      tableFootData.textContent = totalRow;
+      cookieTotal += totalRow;
+    }else {
+      var tableColumnTotal = document.createElement('td');//<tfoot> </tfoot>
+      tableFoot.appendChild(tableColumnTotal); //<table> <tfoot></tfoot> </table>
+      tableFootData.text = cookieTotal;
+    }
+  }
+  var totalTotal = document.createElement('td'); //<td></td>
+  tableFoot.appendChild(totalTotal); //<table> <tfoot></tfoot> </table>
+  totalTotal.textContent = cookieTotal;
 }
 
 loopRenderTable();
+totalBottomRow();
 
 //EVENT LISTENERS
 
@@ -100,6 +157,9 @@ function handleSubmit(event){
   // storesConstructed.push(storeName);
   // console.log(store);
   nuevoStore.renderTable(); //add whatever nuevoStore is to the table
+  var footer = document.getElementById('table-footer'); //allows us to access the #table-footer from html
+  footer.remove();
+  totalBottomRow();
 }
 
 // //Loop stores

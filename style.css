@@ -2,10 +2,35 @@
   margin-top: 0;
 }
 
-body {
+html{
+  /*css tricks had a way to adjust an img in a page at all times, no matter screen or browser size*/
+  background: url("background.") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   padding-top: 50px;
-  background-color: #E6DEDC;
+  background-image: url("background.jpg");
+}
+
+/*#613318;*/
+/*660000*/
+
+body {
+  color: #E6DEDC;
+  /*background-color: #7e3b23;*/
   min-height: 1500px;
+}
+
+table {
+  background-color: #660000;
+  background: rgba(102,0,0,0.5);
+}
+
+#top-header{
+  height: 80px;
+  background-color: #660000;
+  opacity: .30;
 }
 
 #slide{
@@ -14,23 +39,9 @@ body {
   color: #820107;
 }
 
-/*.container_12{
-  padding-left: 50px;
-}*/
-
-/*.container_12 nav{
-  display: inline-block;
-  border-radius: 12px;
-  position: fixed;
-  width: 300px;
-  background-color: #EB8F8E;
-  opacity: .8;
-}*/
-
-
 .frasier-is-cool tr, .frasier-is-cool td, td, th{
   margin-top: 10px;
-  border: 2px solid #000000;
+  border: 2px solid #E6DEDC;
   padding: 8px;
 }
 
@@ -42,14 +53,16 @@ thead {
 #nav-bar {
   radius: 3px;
   top: 0;
-  height: 50px;
+  height: 55px;
   position: fixed;
   width: 100%;
-  background-color: #820107;
-  margin-bottom: 50px;
+  background-color: #660000;
 }
 
-#nav-bar a{
+#nav-bar-item{
+  margin-left: 2px;
+  margin-right: -1px;
+  margin-top: 6.5px;
   background-color: #131313;
   border-radius: 3px;
   display: inline-block;
@@ -76,19 +89,24 @@ label, input{
   display: block;
 }
 
+#main-table{
+  display: inline-block;
+}
+
 #new-store-form{
+  display: inline-block;
   margin: 0 auto;
   padding: 8px;
 }
 
 fieldset {
-  color: #131313;
-  background-color: #820107;
+  color: #E6DEDC;
+  background-color: #660000;
 }
 
 button{
   radius: 3px;
   text-align: center;
-  color: #131313;
+  color: #E6DEDC;
   background-color: #820107;
 }

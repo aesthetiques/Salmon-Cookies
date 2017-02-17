@@ -1,0 +1,101 @@
+*{
+  margin-top: 0;
+}
+
+/*#613318;*/
+
+
+body {
+  color: #E6DEDC;
+  padding-top: 50px;
+  background-color: #660000;
+  min-height: 1500px;
+}
+
+#slide{
+  margin-top: 100px;
+  margin: auto;
+  color: #820107;
+}
+
+div {
+  background-color: #000000;
+}
+/*.container_12{
+  padding-left: 50px;
+}*/
+
+/*.container_12 nav{
+  display: inline-block;
+  border-radius: 12px;
+  position: fixed;
+  width: 300px;
+  background-color: #EB8F8E;
+  opacity: .8;
+}*/
+
+
+.frasier-is-cool tr, .frasier-is-cool td, td, th{
+  margin-top: 10px;
+  border: 2px solid #000000;
+  padding: 8px;
+}
+
+thead {
+  border: 2px solid #000000;
+  border-bottom: 0px;
+}
+
+#nav-bar {
+  radius: 3px;
+  top: 0;
+  height: 50px;
+  position: fixed;
+  width: 100%;
+  background-color: #660000;
+  margin-bottom: 50px;
+}
+
+#nav-bar a{
+  background-color: #131313;
+  border-radius: 3px;
+  display: inline-block;
+  border: solid #111111;
+  opacity: .85;
+  text-decoration: none;
+  text-transform: lowercase;
+  font-family: helvetica;
+  font-weight: bold;
+  font-size: 24px;
+  color: #E6DEDC;
+  border-width: 1.5px;
+}
+
+.hidden {
+  display: none;
+}
+.active {
+  color: #FF7777;
+/* Drop Down Book Lists jQuery*/
+}
+
+label, input{
+  display: block;
+}
+
+#new-store-form{
+  margin: 0 auto;
+  padding: 8px;
+}
+
+fieldset {
+  color: #131313;
+  background-color: #820107;
+}
+
+button{
+  radius: 3px;
+  text-align: center;
+  color: #131313;
+  background-color: #820107;
+}
