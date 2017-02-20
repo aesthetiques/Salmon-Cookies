@@ -6,9 +6,9 @@ html{
   /*css tricks had a way to adjust an img in a page at all times, no matter screen or browser size*/
   background: url("background.") no-repeat center center fixed;
   -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
   padding-top: 50px;
   background-image: url("background.jpg");
 }
@@ -18,8 +18,16 @@ html{
 
 body {
   color: #E6DEDC;
-  /*background-color: #7e3b23;*/
-  min-height: 1500px;
+  background: rgba(13,13,13,0.75)
+  min-height: 3000px;
+}
+
+#fml-css{
+  margin-left: 40px;
+  margin-right: 40px;
+  padding: 25px;
+  display: float;
+  background: rgba(13,13,13,0.85);
 }
 
 table {
@@ -38,6 +46,10 @@ table {
   color: #820107;
 }*/
 
+#text-block-header{
+  background: rgba(13,13,13,0.75);
+}
+
 .frasier-is-cool tr, .frasier-is-cool td, td, th{
   margin-top: 10px;
   border: 2px solid #E6DEDC;
@@ -48,22 +60,19 @@ thead {
   border: 2px solid #000000;
   border-bottom: 0px;
 }
-.container_16 .pull_6{
-  padding-left: 50px;
-}
+
 #nav-bar {
   top: 0;
+  left: 0;
   height: 40px;
   position: fixed;
   width: 110%;
-  background-color: #660000;
   background: rgba(102,0,0,0.85);
-
 }
 
 #nav-bar-item{
-  margin-left: 20px;
-  margin-right: -15px;
+  margin-left: 10px;
+  margin-right: -5px;
   margin-top: 1px;
   background-color: #131313;
   border-radius: 1px;
@@ -89,6 +98,7 @@ thead {
 .hidden {
   display: none;
 }
+
 .active {
   color: #FF7777;
 /* Drop Down Book Lists jQuery*/
@@ -98,16 +108,12 @@ label, input{
   display: block;
 }
 
-#main-table{
-  display: inline-block;
-  margin-top: 40%
-}
 
 #new-store-form{
   display: inline-block;
   margin: 0 auto;
   padding: 8px;
-  margin-top: 25%
+  margin-top: 25%;
 }
 
 fieldset {
@@ -142,8 +148,42 @@ li{
 #nav-bar-item:hover {
   /*background-color: #660000;
   color: #660000;*/
-  background: rgba(13,13,13,0.75);
+  background: rgba(13,13,13,0.75)
 }
+
+h1{
+  float: left;
+}
+
+.our-stores-pix{
+  /*padding: 20px 20px 10px 10px;*/
+  height: 10%;
+  width: 10%;
+  /*border-right: 10px solid #131313;
+  border-bottom: 10px solid #131313;*/
+}
+
+h2{
+  margin-bottom: 0;
+}
+
+/*h1{
+  max-width: 400px;
+  display: inline;
+  float: left;
+  text-transform: lowercase;
+  background: rgba(102,0,0,0.85);
+}
+
+
+p{
+  position: relative;
+  max-width: 500px;
+  max-height: 250px
+  display: inline;
+  float: left;*/
+}
+
 /*.dropdown {
     position: relative;
     display: inline-block;
