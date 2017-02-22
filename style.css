@@ -167,6 +167,13 @@ h2{
   margin-bottom: 0;
 }
 
+#email{
+  text-decoration: none;
+  font-family: helvetica;
+  font-weight: bold;
+  font-size: 24px;
+  color: #E6DEDC;
+}
 /*h1{
   max-width: 400px;
   display: inline;
